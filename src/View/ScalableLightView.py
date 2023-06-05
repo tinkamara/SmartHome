@@ -1,8 +1,12 @@
-class LightView:
+from AbstractView.BinaryDeviceView import BinaryDeviceView
+from AbstractView.ScalableDeviceView import ScalableDeviceView
+
+
+class ScalableLightView(BinaryDeviceView, ScalableDeviceView):
     def __init__(self, light):
         self.light = light
-
-    def display_status(self):
+        
+    def display(self):
         if self.light.is_on:
             print("Light is on")
         else:

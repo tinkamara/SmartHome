@@ -1,7 +1,12 @@
-class LightController:
+from AbstractController.BinaryDeviceController import BinaryDeviceController
+from AbstractController.ScalableDeviceController import ScalableDeviceController
+
+
+class ScalableLightController(BinaryDeviceController, ScalableDeviceController):
     def __init__(self, light, view):
         self.light = light
         self.view = view
+
 
     def process_user_input(self):
         choice = self.view.get_user_input()
@@ -11,8 +16,8 @@ class LightController:
             self.light.turn_off()
         elif choice == '3':
             brightness = int(input("Enter brightness level (0-100): "))
-            self.light.set_brightness(brightness)
+            self.light.scale_device(brightness)
 
-        self.view.display_status()
+        self.view.display()
 
         
