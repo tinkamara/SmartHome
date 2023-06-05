@@ -1,19 +1,19 @@
 
-from View.LightView import LightView
+from View.ScalableLightView import ScalableLightView
 from Model.ScalableLight import ScalableLight
-from Controller.LightController import LightController
+from Controller.ScalableLightController import ScalableLightController
 
 
 
 def main():
 
     light = ScalableLight()
-    view = LightView(light)
-    controller = LightController(light, view)
+    view = ScalableLightView(light)
+    controller = ScalableLightController(light, view)
 
     
     while True:
-        view.display_status()
+        view.display()
         controller.process_user_input()
 
 
