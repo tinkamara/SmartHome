@@ -1,8 +1,8 @@
 from abc import abstractmethod
-from abstract_view.device_view import device_view
+from src.abstract_view.device_view import DeviceView
 
 
-class BinaryDeviceView(device_view):
+class BinaryDeviceView(DeviceView):
     @abstractmethod
     def display(self):
         pass

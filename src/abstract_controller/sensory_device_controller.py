@@ -1,8 +1,9 @@
 from abc import abstractmethod
-from abstract_controller.device_controller import device_controller
+
+from src.abstract_controller.device_controller import DeviceController
 
 
-class sensory_device_controller(device_controller):
+class SensoryDeviceController(DeviceController):
     
     @abstractmethod
     def process_user_input(self):

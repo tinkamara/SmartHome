@@ -1,8 +1,9 @@
 from abc import abstractmethod
-from abstract_controller.device_controller import device_controller
+
+from src.abstract_controller.device_controller import DeviceController
 
 
-class scalable_device_controller(device_controller):
+class ScalableDeviceController(DeviceController):
 
     @abstractmethod
     def process_user_input(self):

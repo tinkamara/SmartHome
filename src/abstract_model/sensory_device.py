@@ -1,9 +1,10 @@
 from abc import abstractmethod
-from abstract_model.device import device
+
+from src.abstract_model.device import Device
 
 
-class sensory_device(device):
+class SensoryDevice(Device):
 
     @abstractmethod
-    def getValue(self, value):
+    def get_value(self, value):
         pass

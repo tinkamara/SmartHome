@@ -1,14 +1,11 @@
+from src.abstract_controller.binary_device_controller import BinaryDeviceController
+from src.abstract_controller.scalable_device_controller import ScalableDeviceController
 
 
-
-from src.abstract_controller import binary_device_controller, scalable_device_controller
-
-
-class scalable_light_controller(scalable_device_controller, binary_device_controller):
+class ScalableLightController(ScalableDeviceController, BinaryDeviceController):
     def __init__(self, light, view):
         self.light = light
         self.view = view
-
 
     def process_user_input(self):
         choice = self.view.get_user_input()
@@ -21,5 +18,3 @@ class scalable_light_controller(scalable_device_controller, binary_device_contro
             self.light.scale_device(brightness)
 
         self.view.display()
-
-        

@@ -1,7 +1,7 @@
 from abc import ABC, abstractmethod
 
 
-class device_view(ABC):
+class DeviceView(ABC):
     
 
     @abstractmethod
