@@ -12,6 +12,7 @@ def main():
     gui.run()
 
     while True:
+
         view.display()
         controller.process_user_input()
 
