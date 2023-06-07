@@ -1,8 +1,8 @@
 from abc import abstractmethod
-from AbstractModel.Device import Device
+from abstract_model.device import device
 
 
-class BinaryDevice(Device) :
+class binary_device(device) :
     
 
     @abstractmethod

@@ -1,8 +1,9 @@
-from abc import abstractmethod
-from AbstractView.DeviceView import DeviceView
+from abc import ABC, abstractmethod
 
 
-class ScalableDeviceView(DeviceView):
+class device_view(ABC):
+    
+
     @abstractmethod
     def display(self):
         pass

@@ -1,7 +1,7 @@
 from abc import ABC, abstractmethod
 
 
-class DeviceController(ABC):
+class device_controller(ABC):
 
     @abstractmethod
     def process_user_input(self):

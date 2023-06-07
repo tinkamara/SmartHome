@@ -1,8 +1,8 @@
-from AbstractView.BinaryDeviceView import BinaryDeviceView
-from AbstractView.ScalableDeviceView import ScalableDeviceView
+
+from src.abstract_view import binary_device_view, scalable_device_view
 
 
-class ScalableLightView(BinaryDeviceView, ScalableDeviceView):
+class scalable_light_view(binary_device_view, scalable_device_view):
     def __init__(self, light):
         self.light = light
         

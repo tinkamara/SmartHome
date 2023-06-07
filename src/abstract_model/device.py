@@ -1,5 +1,5 @@
 from abc import ABC, abstractmethod
 import uuid
 
-class Device(ABC):
+class device(ABC):
     uuid = uuid.UUID

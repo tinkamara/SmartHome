@@ -1,8 +1,10 @@
-from AbstractController.BinaryDeviceController import BinaryDeviceController
-from AbstractController.ScalableDeviceController import ScalableDeviceController
 
 
-class ScalableLightController(BinaryDeviceController, ScalableDeviceController):
+
+from src.abstract_controller import binary_device_controller, scalable_device_controller
+
+
+class scalable_light_controller(scalable_device_controller, binary_device_controller):
     def __init__(self, light, view):
         self.light = light
         self.view = view

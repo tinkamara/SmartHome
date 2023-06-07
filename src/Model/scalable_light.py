@@ -1,8 +1,7 @@
-from AbstractModel.BinaryDevice import BinaryDevice
-from AbstractModel.ScalableDevice import ScalableDevice
+from src.abstract_model import binary_device, scalable_device
 
 
-class ScalableLight(BinaryDevice, ScalableDevice):
+class scalable_light(binary_device, scalable_device):
     def __init__(self):
         self.is_on = False
         self.brightness = 0

@@ -1,8 +1,8 @@
 from abc import abstractmethod
-from AbstractModel.Device import Device
+from abstract_model.device import device
 
 
-class ScalableDevice(Device):
+class scalable_device(device):
 
     @abstractmethod
     def scale_device(self, value):
