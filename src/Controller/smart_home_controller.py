@@ -17,6 +17,9 @@ class SmartHomeController:
     def add_device_to_group(self, room_index, group_index, device):
         self.rooms[room_index].groups[group_index].add_device(device)
 
+    def add_device_to_room(self, room_index, device):
+        self.rooms[room_index].add_device(device)
+
     def on_button_click(self, room_index, group_index, device_index):
         device = self.rooms[room_index].groups[group_index].devices[device_index]
         if device.is_on:
