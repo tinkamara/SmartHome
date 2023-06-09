@@ -1,0 +1,58 @@
+digraph "src" {
+
+splines  = ortho;
+fontname = "Inconsolata";
+
+node [colorscheme = ylgnbu4];
+edge [colorscheme = dark28, dir = both];
+
+"abc.ABC"                                               [shape = record, label = "{ abc.ABC |  }"];
+"abc.ABCMeta"                                           [shape = record, label = "{ abc.ABCMeta |  __abstractmethods__ : \l| __new__(
+            __mcls: type[Self], __name: str, __bases: tuple[type, ...], __namespace: dict[str, Any], **kwargs: Any
+        ) : \l  __new__(
+            mcls: type[Self], name: str, bases: tuple[type, ...], namespace: dict[str, Any], **kwargs: Any  # pyright: ignore
+        ) : \l  __instancecheck__(cls: ABCMeta, instance: Any) : \l  __subclasscheck__(cls: ABCMeta, subclass: Any) : \l  _dump_registry(cls: ABCMeta, file: SupportsWrite[str] \| None = ...) : \l  register(cls: ABCMeta, subclass: type[_T]) : \l }"];
+"abstract_model.binary_device.BinaryDevice"             [shape = record, label = "{ abstract_model.binary_device.BinaryDevice |  turn_on(self) : \l  turn_off(self) : \l }"];
+"abstract_model.device.Device"                          [shape = record, label = "{ abstract_model.device.Device |  uuid : \l }"];
+"abstract_model.scalable_device.ScalableDevice"         [shape = record, label = "{ abstract_model.scalable_device.ScalableDevice |  scale_device(self, value) : \l }"];
+"abstract_model.sensory_device.SensoryDevice"           [shape = record, label = "{ abstract_model.sensory_device.SensoryDevice |  get_value(self, value) : \l }"];
+"controller.smart_home_controller.SmartHomeController"  [shape = record, label = "{ controller.smart_home_controller.SmartHomeController |  rooms : \l| __init__(self) : \l  add_room(self) : \l  add_group_to_room(self, room_index) : \l  add_device_to_group(self, room_index, group_index, device) : \l  add_device_to_room(self, room_index, device) : \l  on_button_click(self, room_index, group_index, device_index) : \l  on_scale(self, room_index, group_index, device_index, value) : \l }"];
+"main.SmartHome"                                        [shape = record, label = "{ main.SmartHome |  controller : \l| __init__(self) : \l  run(self) : \l }"];
+"model.devices.scalable_light.ScalableLight"            [shape = record, label = "{ model.devices.scalable_light.ScalableLight |  brightness : \l  is_on : \l| __init__(self) : \l  turn_on(self) : \l  turn_off(self) : \l  scale_device(self, brightness) : \l }"];
+"model.devices.speaker.Speaker"                         [shape = record, label = "{ model.devices.speaker.Speaker |  volume : \l  is_on : \l| __init__(self) : \l  turn_on(self) : \l  turn_off(self) : \l  scale_device(self, volume) : \l }"];
+"model.locations.group.Group"                           [shape = record, label = "{ model.locations.group.Group |  devices : \l| __init__(self) : \l  add_device(self, device) : \l }"];
+"model.locations.room.Room"                             [shape = record, label = "{ model.locations.room.Room |  devices : \l  groups : \l| __init__(self) : \l  add_group(self, group) : \l  add_device(self, device) : \l }"];
+"model.misc.log.Log"                                    [shape = record, label = "{ model.misc.log.Log |  }"];
+"model.sensors.air_humidity_sensor.AirHumiditySensor"   [shape = record, label = "{ model.sensors.air_humidity_sensor.AirHumiditySensor |  }"];
+"model.sensors.soil_humidity_sensor.SoilHumiditySensor" [shape = record, label = "{ model.sensors.soil_humidity_sensor.SoilHumiditySensor |  }"];
+"model.sensors.temperature_sensor.TemperatureSensor"    [shape = record, label = "{ model.sensors.temperature_sensor.TemperatureSensor |  }"];
+object                                                  [shape = record, label = "{ object |  __doc__ : \l  __dict__ : \l  __slots__ : \l  __module__ : \l  __annotations__ : \l| __class__(self: _T) : \l  __class__(self, __type: Type[object]) : \l  __init__(self) : \l  __new__(cls: Type[_T]) : \l  __setattr__(self, name: str, value: Any) : \l  __eq__(self, o: object) : \l  __ne__(self, o: object) : \l  __str__(self) : \l  __repr__(self) : \l  __hash__(self) : \l  __format__(self, format_spec: str) : \l  __getattribute__(self, name: str) : \l  __delattr__(self, name: str) : \l  __sizeof__(self) : \l  __reduce__(self) : \l  __reduce_ex__(self, protocol: SupportsIndex) : \l  __reduce_ex__(self, protocol: int) : \l  __dir__(self) : \l  __init_subclass__(cls) : \l }"];
+"typing.Hashable"                                       [shape = record, label = "{ typing.Hashable |  __hash__(self) : \l }"];
+"utilities.json_reader.JsonReader"                      [shape = record, label = "{ utilities.json_reader.JsonReader |  file_path : \l| __init__(self, file_path) : \l  read_json(self) : \l }"];
+"utilities.txt_writer.TxtWriter"                        [shape = record, label = "{ utilities.txt_writer.TxtWriter |  file_path : \l| __init__(self, file_path) : \l  write_text(self, text) : \l }"];
+"view.smart_home_view.SmartHomeView"                    [shape = record, label = "{ view.smart_home_view.SmartHomeView |  controller : \l  room_frames : \l  add_room_button : \l  root : \l| __init__(self, root, controller) : \l  update_status(self) : \l }"];
+
+"abc.ABC"                                               -> "abc.ABCMeta"                                           [color = "#595959", style = dashed, arrowtail = normal  , arrowhead = none    , taillabel = "", label = "", headlabel = "isinstanceof"];
+"abc.ABC"                                               -> object                                                  [color = "#595959", style = solid , arrowtail = normal  , arrowhead = none    , taillabel = "", label = "", headlabel = ""];
+"abstract_model.binary_device.BinaryDevice"             -> "abstract_model.device.Device"                          [color = "#595959", style = solid , arrowtail = normal  , arrowhead = none    , taillabel = "", label = "", headlabel = ""];
+"abstract_model.device.Device"                          -> "abc.ABC"                                               [color = "#595959", style = solid , arrowtail = normal  , arrowhead = none    , taillabel = "", label = "", headlabel = ""];
+"abstract_model.scalable_device.ScalableDevice"         -> "abstract_model.device.Device"                          [color = "#595959", style = solid , arrowtail = normal  , arrowhead = none    , taillabel = "", label = "", headlabel = ""];
+"abstract_model.sensory_device.SensoryDevice"           -> "abstract_model.device.Device"                          [color = "#595959", style = solid , arrowtail = normal  , arrowhead = none    , taillabel = "", label = "", headlabel = ""];
+"controller.smart_home_controller.SmartHomeController"  -> object                                                  [color = "#595959", style = solid , arrowtail = normal  , arrowhead = none    , taillabel = "", label = "", headlabel = ""];
+"main.SmartHome"                                        -> object                                                  [color = "#595959", style = solid , arrowtail = normal  , arrowhead = none    , taillabel = "", label = "", headlabel = ""];
+"model.devices.scalable_light.ScalableLight"            -> "abstract_model.binary_device.BinaryDevice"             [color = "#595959", style = solid , arrowtail = normal  , arrowhead = none    , taillabel = "", label = "", headlabel = ""];
+"model.devices.scalable_light.ScalableLight"            -> "abstract_model.scalable_device.ScalableDevice"         [color = "#595959", style = solid , arrowtail = normal  , arrowhead = none    , taillabel = "", label = "", headlabel = ""];
+"model.devices.speaker.Speaker"                         -> "abstract_model.binary_device.BinaryDevice"             [color = "#595959", style = solid , arrowtail = normal  , arrowhead = none    , taillabel = "", label = "", headlabel = ""];
+"model.devices.speaker.Speaker"                         -> "abstract_model.scalable_device.ScalableDevice"         [color = "#595959", style = solid , arrowtail = normal  , arrowhead = none    , taillabel = "", label = "", headlabel = ""];
+"model.locations.group.Group"                           -> object                                                  [color = "#595959", style = solid , arrowtail = normal  , arrowhead = none    , taillabel = "", label = "", headlabel = ""];
+"model.locations.room.Room"                             -> object                                                  [color = "#595959", style = solid , arrowtail = normal  , arrowhead = none    , taillabel = "", label = "", headlabel = ""];
+"model.misc.log.Log"                                    -> object                                                  [color = "#595959", style = solid , arrowtail = normal  , arrowhead = none    , taillabel = "", label = "", headlabel = ""];
+"model.sensors.air_humidity_sensor.AirHumiditySensor"   -> "abstract_model.sensory_device.SensoryDevice"           [color = "#595959", style = solid , arrowtail = normal  , arrowhead = none    , taillabel = "", label = "", headlabel = ""];
+"model.sensors.soil_humidity_sensor.SoilHumiditySensor" -> "abstract_model.sensory_device.SensoryDevice"           [color = "#595959", style = solid , arrowtail = normal  , arrowhead = none    , taillabel = "", label = "", headlabel = ""];
+"model.sensors.temperature_sensor.TemperatureSensor"    -> "abstract_model.sensory_device.SensoryDevice"           [color = "#595959", style = solid , arrowtail = normal  , arrowhead = none    , taillabel = "", label = "", headlabel = ""];
+object                                                  -> "typing.Hashable"                                       [color = "#595959", style = dashed, arrowtail = normal  , arrowhead = none    , taillabel = "", label = "", headlabel = ""];
+"utilities.json_reader.JsonReader"                      -> object                                                  [color = "#595959", style = solid , arrowtail = normal  , arrowhead = none    , taillabel = "", label = "", headlabel = ""];
+"utilities.txt_writer.TxtWriter"                        -> object                                                  [color = "#595959", style = solid , arrowtail = normal  , arrowhead = none    , taillabel = "", label = "", headlabel = ""];
+"view.smart_home_view.SmartHomeView"                    -> object                                                  [color = "#595959", style = solid , arrowtail = normal  , arrowhead = none    , taillabel = "", label = "", headlabel = ""];
+
+}
