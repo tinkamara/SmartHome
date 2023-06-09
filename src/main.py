@@ -1,21 +1,26 @@
-from src.controller.scalable_light_controller import ScalableLightController
-from src.gui.gui import GUI
-from src.model.scalable_light import ScalableLight
-from src.view.scalable_light_view import ScalableLightView
+
+import tkinter as tk
+
+from src.controller.smart_home_controller import SmartHomeController
+from src.view.smart_home_view import SmartHomeView
 
 
-def main():
-    light = ScalableLight()
-    view = ScalableLightView(light)
-    controller = ScalableLightController(light, view)
-    gui = GUI()
-    gui.run()
+class SmartHome:
+    def __init__(self):
+        self.controller = SmartHomeController()
 
-    while True:
+    def run(self):
+        root = tk.Tk()
+        view = SmartHomeView(root, self.controller)
 
-        view.display()
-        controller.process_user_input()
+        def update_gui():
+            view.update_status()
+            root.after(100, update_gui)
 
+        update_gui()
+
+        root.mainloop()
 
 if __name__ == "__main__":
-    main()
+    gui = SmartHome()
+    gui.run()
