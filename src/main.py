@@ -21,6 +21,7 @@ class SmartHome:
 
         root.mainloop()
 
+
 if __name__ == "__main__":
     gui = SmartHome()
     gui.run()
